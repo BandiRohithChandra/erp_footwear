@@ -1,0 +1,326 @@
+/* Import Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+body {
+    font-family: 'Inter', 'Figtree', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-full hover:bg-slate-400 transition-colors;
+}
+
+/* Glassmorphism utilities */
+.glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+.glass-dark {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+/* Override sidebar link colors for better visibility */
+#sidebar a,
+#sidebar button {
+    color: #334155 !important;
+    /* slate-700 */
+}
+
+#sidebar a:hover,
+#sidebar button:hover {
+    color: #6366F1 !important;
+    /* primary purple */
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%) !important;
+}
+
+/* Active state with purple gradient */
+#sidebar a.bg-gray-700,
+#sidebar button.bg-gray-700,
+#sidebar a.bg-gray-600,
+#sidebar button.bg-gray-600 {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%) !important;
+    color: #6366F1 !important;
+    border-left-color: #6366F1 !important;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Sidebar Collapse Styles */
+#sidebar.collapsed {
+    width: 5rem !important;
+}
+
+#sidebar.collapsed .sidebar-text {
+    display: none !important;
+}
+
+#sidebar.collapsed .sidebar-icon {
+    margin-right: 0 !important;
+}
+
+#sidebar.collapsed .sidebar-header-wrapper {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+}
+
+#sidebar.collapsed .sidebar-toggle-row {
+    margin-bottom: 0.25rem !important;
+    justify-content: center !important;
+}
+
+#sidebar.collapsed .sidebar-logo-link {
+    display: none !important;
+}
+
+#sidebar.collapsed #sidebar-logo {
+    display: none !important;
+}
+
+#sidebar:not(.collapsed) .sidebar-text {
+    opacity: 1;
+    width: auto;
+    transition: opacity 0.3s ease 0.1s, width 0.3s ease 0.1s;
+}
+
+#sidebar.collapsed a {
+    justify-content: center;
+}
+
+#sidebar.collapsed .sidebar-dropdown-arrow {
+    display: none;
+}
+
+/* Hide all text nodes in collapsed sidebar */
+#sidebar.collapsed a,
+#sidebar.collapsed button {
+    font-size: 0;
+}
+
+#sidebar.collapsed svg {
+    font-size: 1rem;
+}
+
+#sidebar.collapsed .block {
+    font-size: 0;
+}
+
+/* Make sidebar icons visible on light background */
+#sidebar svg {
+    color: #475569 !important;
+    /* slate-600 */
+}
+
+#sidebar a,
+#sidebar button {
+    color: #475569 !important;
+    /* slate-600 */
+}
+
+#sidebar a:hover,
+#sidebar button:hover {
+    background-color: rgba(99, 102, 241, 0.1) !important;
+    color: #6366F1 !important;
+    /* indigo-500 */
+}
+
+#sidebar a:hover svg,
+#sidebar button:hover svg {
+    color: #6366F1 !important;
+    /* indigo-500 */
+}
+
+#sidebar a.bg-gray-700,
+#sidebar a.bg-gray-600 {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%) !important;
+    color: #6366F1 !important;
+}
+
+#sidebar a.bg-gray-700 svg,
+#sidebar a.bg-gray-600 svg {
+    color: #6366F1 !important;
+}
+
+
+
+
+
+html[lang="ar"] {
+    direction: rtl;
+}
+
+html[lang="ar"] .sidebar {
+    left: auto;
+    right: 0;
+}
+
+html[lang="ar"] .sidebar.translate-x-full {
+    transform: translateX(-100%);
+    /* Fixed: Slide to the left in RTL */
+}
+
+html[lang="ar"] .main-content {
+    margin-right: 256px;
+    margin-left: auto;
+}
+
+@media (max-width: 768px) {
+    html[lang="ar"] .sidebar {
+        transform: translateX(-100%);
+        /* Fixed: Slide to the left in RTL */
+    }
+}
+
+/* Renamed to avoid conflict with Tailwind's container */
+.custom-container {
+    max-width: 1280px;
+}
+
+
+
+/* Dark mode */
+body.dark {
+    @apply bg-gray-900 text-gray-100;
+}
+
+body.dark .bg-white {
+    @apply bg-gray-800;
+}
+
+body.dark .text-gray-600 {
+    @apply text-gray-300;
+}
+
+/* Replace problematic rule with direct color value */
+body.dark [class*="bg-gray-800"] {
+    background-color: #1f2937;
+    /* Equivalent to bg-gray-900 */
+}
+
+/* Fix for sidebar links in dark mode: Directly set the color */
+body.dark #sidebar a,
+body.dark #sidebar button {
+    color: #e5e7eb;
+    /* Equivalent to text-gray-200 */
+}
+
+body.dark .hover\:bg-gray-700:hover {
+    @apply bg-gray-600;
+}
+
+body.dark .bg-gray-200 {
+    @apply bg-gray-700;
+}
+
+body.dark .hover\:bg-gray-300:hover {
+    @apply bg-gray-600;
+}
+
+body.dark .bg-green-100 {
+    @apply bg-green-900;
+}
+
+body.dark .text-green-700 {
+    @apply text-green-300;
+}
+
+body.dark .bg-yellow-100 {
+    @apply bg-yellow-900;
+}
+
+body.dark .text-yellow-700 {
+    @apply text-yellow-300;
+}
+
+body.dark #sidebar {
+    @apply bg-gray-900;
+}
+
+body.dark #search-results {
+    @apply bg-gray-800 text-gray-200;
+}
+
+body.dark #search-results .hover\:bg-gray-100:hover {
+    @apply bg-gray-700;
+}
+
+body.dark #search-results .text-gray-500 {
+    @apply text-gray-400;
+}
+
+/* Loading Spinner */
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Active State for Sidebar */
+.border-l-4 {
+    border-left-width: 4px;
+}
+
+/* Responsive Design Enhancements */
+@media (max-width: 768px) {
+    main {
+        @apply p-4;
+    }
+
+    h1 {
+        @apply text-lg;
+    }
+
+    .text-xl {
+        @apply text-lg;
+    }
+
+    #sidebar-toggle {
+        @apply p-1;
+    }
+}

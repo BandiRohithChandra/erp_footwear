@@ -1,0 +1,10 @@
+{
+  "cards": [
+    { "key": "finance_summary", "label": "Finance Summary", "enabled": true },
+    { "key": "hr_summary", "label": "HR Summary", "enabled": true },
+    { "key": "production_kpis", "label": "Production KPIs", "enabled": true },
+    { "key": "low_stock_alerts", "label": "Low Stock Alerts", "enabled": true },
+    { "key": "charts_section", "label": "Charts Section", "enabled": true },
+    { "key": "recent_activity", "label": "Recent Activity", "enabled": true }
+  ]
+}
